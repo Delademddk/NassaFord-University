@@ -86,7 +86,7 @@ nav {
     margin-top: 100px; /* Adjust this to match Nav height */
     min-height: 90vh; /* Reduced slightly since nav takes space */
     width: 100%;
-    background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), url(images/banner.png);
+    background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), url(banner.jpeg);
     background-position: center;
     background-size: cover;
     position: relative;
@@ -96,7 +96,7 @@ nav {
     margin-top: 100px; /* Adjust for fixed nav */
     height: 50vh;
     width: 100%;
-    background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), url(images/background.jpg);
+    background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), url(background.jpeg);
     background-position: center;
     background-size: cover;
     text-align: center;
@@ -296,7 +296,7 @@ h3 {
 #cta {
     margin: 100px auto;
     width: 80%;
-    background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url(images/banner2.jpg);
+    background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url(banner2.jpeg);
     background-position: center;
     background-size: cover;
     border-radius: 10px;
@@ -392,27 +392,113 @@ h3 {
 .location iframe { width: 100%; }
 
 
-/* --- 9. Mobile Responsiveness --- */
-@media(max-width: 700px) {
-    /* Adjust Nav for Mobile */
+/* --- 9. Responsive Media Queries --- */
+
+/* Tablet & Smaller Laptops (1024px and down) */
+@media(max-width: 1024px) {
+    .text-box h1 {
+        font-size: 44px;
+    }
+    
+    .nav-links ul li {
+        padding: 8px 10px; /* Reduces spacing between links */
+    }
+}
+
+/* Mobile Devices (768px and down) */
+@media(max-width: 768px) {
+    
+    /* Navigation Adjustments */
     nav {
         flex-direction: column;
         padding: 15px;
-        position: relative; /* On mobile, sometimes better to not fix it if it takes too much screen space, but you can keep 'fixed' if preferred */
+        position: relative; /* Un-fixes nav on mobile to prevent it covering screen */
+        background: #fff;
     }
 
-    /* Important: If you keep nav fixed on mobile, you need more margin-top on #header */
-    #header { margin-top: 0; } 
-    .sub-header { margin-top: 0; }
+    .logo img {
+        margin: 5px 0 15px 0;
+        height: 50px; /* Smaller logo */
+    }
 
-    .logo img { margin: 15px 0; height: 60px; }
+    .nav-links ul li {
+        display: block;
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .nav-left, .nav-right {
+        text-align: center;
+        width: 100%;
+    }
+
+    /* Header Spacing Reset (Since nav is no longer fixed) */
+    #header, .sub-header {
+        margin-top: 0; 
+    }
+
+    /* Typography & Text Box */
+    .text-box h1 {
+        font-size: 22px;
+    }
     
-    .nav-left, .nav-right { text-align: center; width: 100%; }
-    .nav-links ul li { display: block; margin: 5px 0; }
+    .text-box p {
+        font-size: 12px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    /* Column Stacking - Turns rows into vertical stacks */
+    .row {
+        flex-direction: column;
+    }
+
+    /* Making Columns Full Width */
+    .course-col, 
+    .campus-col, 
+    .facilities-col, 
+    .testimonial-col,
+    .about-col, 
+    .contact-col {
+        flex-basis: 100%;
+        margin-bottom: 25px; /* Adds space between stacked items */
+    }
+
+    /* Specific Page Adjustments */
+    .blog-left, .blog-right {
+        flex-basis: 100%;
+    }
     
-    .text-box h1 { font-size: 20px; }
-    .row { flex-direction: column; }
+    .blog-right {
+        margin-top: 30px;
+    }
+
+    /* Testimonial Fix */
+    .testimonial-col {
+        padding: 20px;
+    }
     
-    .testimonial-col img { margin-left: 0; margin-right: 15px; }
-    .blog-left, .blog-right, .contact-col, .about-col { flex-basis: 100%; }
+    .testimonial-col img {
+        margin-left: 0;
+        margin-right: 15px;
+        height: 30px; /* Smaller profile image */
+    }
+
+    /* Call To Action Area */
+    #cta {
+        width: 90%; /* Wider on mobile */
+        padding: 50px 0;
+        margin: 50px auto;
+    }
+    
+    #cta h1 {
+        font-size: 24px;
+    }
+    
+    /* General Section Padding */
+    section {
+        padding-top: 50px;
+    }
 }
